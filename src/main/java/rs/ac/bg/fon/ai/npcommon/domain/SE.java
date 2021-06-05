@@ -1,7 +1,13 @@
 package rs.ac.bg.fon.ai.npcommon.domain;
 
 public class SE implements OpstiDomenskiObjekat{
-    private Student student;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	
+	private Student student;
     private Eksperiment eksperiment;
 
     public SE() {

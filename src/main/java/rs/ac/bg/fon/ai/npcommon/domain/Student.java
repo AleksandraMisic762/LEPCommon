@@ -2,7 +2,13 @@ package rs.ac.bg.fon.ai.npcommon.domain;
 
 public class Student implements OpstiDomenskiObjekat {
 
-    private Long sifra;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	
+	private Long sifra;
     private String brojIndeksa;
     private String ime;
     private String prezime;

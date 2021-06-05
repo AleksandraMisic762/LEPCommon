@@ -2,7 +2,12 @@ package rs.ac.bg.fon.ai.npcommon.domain;
 
 public class Eksperimentator implements OpstiDomenskiObjekat {
 
-    private Long sifra;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	private Long sifra;
     private String ime;
     private String prezime;
 

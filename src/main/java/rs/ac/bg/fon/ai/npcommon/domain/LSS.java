@@ -1,7 +1,15 @@
 package rs.ac.bg.fon.ai.npcommon.domain;
 
 public class LSS implements OpstiDomenskiObjekat{
-    private Student student;
+	
+	
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	
+	private Student student;
     private ListaStudenata listaStudenata;
 
     public LSS(Student student, ListaStudenata listaStudenata) {

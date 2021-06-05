@@ -4,7 +4,13 @@ import java.util.Objects;
 
 public class Korisnik implements OpstiDomenskiObjekat {
 
-    private Long sifra;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	
+	private Long sifra;
     private String username;
     private String password;
 

@@ -4,7 +4,12 @@ import java.sql.Date;
 
 public class Eksperiment implements OpstiDomenskiObjekat {
 
-    private Long sifra;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	private Long sifra;
     private String naziv;
     private Date datumOdrzavanja;
     private int bodovi;

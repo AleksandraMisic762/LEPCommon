@@ -2,7 +2,13 @@ package rs.ac.bg.fon.ai.npcommon.domain;
 
 public class ListaStudenata implements OpstiDomenskiObjekat {
 
-    private Long sifra;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	
+	private Long sifra;
     private String rok;
     private Predmet predmet;
 
