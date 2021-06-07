@@ -5,6 +5,7 @@ import java.io.Serializable;
 import com.google.gson.JsonObject;
 
 public class Response  implements Serializable{
+	
     /**
 	 * 
 	 */

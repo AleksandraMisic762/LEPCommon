@@ -1,7 +1,6 @@
 package  rs.ac.bg.fon.ai.npcommon.communication;
 
 import java.io.Serializable;
-
 import com.google.gson.JsonObject;
 
 public class Request implements Serializable{
@@ -12,6 +11,7 @@ public class Request implements Serializable{
 //	private Operation operation;
 //    private Object argument;
 	private JsonObject argument;
+
 
     public Request() {
     }
