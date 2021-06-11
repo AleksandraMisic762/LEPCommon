@@ -3,8 +3,6 @@ package  rs.ac.bg.fon.ai.npcommon.communication;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 
-import com.google.gson.JsonObject;
-
 public class Sender {
     private final Socket socket;
 
@@ -12,7 +10,7 @@ public class Sender {
         this.socket = socket;
     }
     
-    public void send(JsonObject object) throws Exception{
+    public void send(Object object) throws Exception{
         try {
             ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
             out.writeObject(object);
