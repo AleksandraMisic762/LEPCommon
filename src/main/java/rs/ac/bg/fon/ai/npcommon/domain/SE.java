@@ -1,9 +1,7 @@
 package rs.ac.bg.fon.ai.npcommon.domain;
 
 public class SE implements OpstiDomenskiObjekat{
-    /**
-	 * 
-	 */
+  
 	private static final long serialVersionUID = 1L;
 	
 	
@@ -14,8 +12,8 @@ public class SE implements OpstiDomenskiObjekat{
     }
     
     public SE(Student student, Eksperiment eksperiment) {
-        this.student = student;
-        this.eksperiment = eksperiment;
+       setStudent(student);
+       setEksperiment(eksperiment);
     }
 
     public Student getStudent() {
@@ -23,6 +21,9 @@ public class SE implements OpstiDomenskiObjekat{
     }
 
     public void setStudent(Student student) {
+    	if (student == null) {
+			throw new NullPointerException("Student ne sme da bude null.");
+		}
         this.student = student;
     }
 
@@ -31,6 +32,9 @@ public class SE implements OpstiDomenskiObjekat{
     }
 
     public void setEksperiment(Eksperiment eksperiment) {
+    	if (eksperiment == null) {
+			throw new NullPointerException("Eksperiment ne sme da bude null.");
+		}
         this.eksperiment = eksperiment;
     }
 

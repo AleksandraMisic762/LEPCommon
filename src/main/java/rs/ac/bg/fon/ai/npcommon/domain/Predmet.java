@@ -2,10 +2,6 @@ package rs.ac.bg.fon.ai.npcommon.domain;
 
 public class Predmet implements OpstiDomenskiObjekat{
 	
-	
-    /**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	
 	
@@ -18,13 +14,13 @@ public class Predmet implements OpstiDomenskiObjekat{
     }
 
     public Predmet(Long sifra) {
-        this.sifra = sifra;
+        setSifra(sifra);
     }
     
     public Predmet(Long sifra, String naziv, int uslov) {
-        this.sifra = sifra;
-        this.naziv = naziv;
-        this.uslov = uslov;
+    	setSifra(sifra);
+        setNaziv(naziv);
+        setUslov(uslov);
     }
 
     @Override
@@ -34,6 +30,12 @@ public class Predmet implements OpstiDomenskiObjekat{
 
     @Override
     public void setSifra(Long sifra) {
+    	if (sifra == null) {
+			throw new NullPointerException("Šifra ne može da bude null.");
+		}
+		if (sifra < 1) {
+			throw new RuntimeException("Šifra mora da bude veća od 0.");
+		}
         this.sifra = sifra;
     }
 
@@ -42,6 +44,9 @@ public class Predmet implements OpstiDomenskiObjekat{
     }
 
     public void setNaziv(String naziv) {
+    	if (naziv !=null && naziv.length() < 3) {
+			throw new RuntimeException("Naziv mora da ima bar 3 karaktera.");
+		}
         this.naziv = naziv;
     }
 
@@ -50,6 +55,9 @@ public class Predmet implements OpstiDomenskiObjekat{
     }
 
     public void setUslov(int uslov) {
+    	if (uslov < 0) {
+			throw new RuntimeException("Uslov ne sme da bude negativan.");
+		}
         this.uslov = uslov;
     }
 

@@ -4,24 +4,20 @@ import java.sql.Date;
 
 public class RasporedEksperimenata implements OpstiDomenskiObjekat {
 
-    /**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
-	
-	
+		
 	private Long sifra;
     private Date datumOd;
     private Date datumDo;
 
     public RasporedEksperimenata(Long id) {
-        this.sifra = id;
+    	setSifra(id);
     }
 
     public RasporedEksperimenata(Long id, Date datumOd, Date datumDo) {
-        this.sifra = id;
-        this.datumOd = datumOd;
-        this.datumDo = datumDo;
+        setSifra(id);
+        setDatumOd(datumOd);;
+        setDatumDo(datumDo);
     }
 
     @Override
@@ -31,6 +27,12 @@ public class RasporedEksperimenata implements OpstiDomenskiObjekat {
 
     @Override
     public void setSifra(Long id) {
+    	if (sifra == null) {
+			throw new NullPointerException("Šifra ne može da bude null.");
+		}
+		if (sifra < 1) {
+			throw new RuntimeException("Šifra mora da bude veća od 0.");
+		}
         this.sifra = id;
     }
 
@@ -39,6 +41,9 @@ public class RasporedEksperimenata implements OpstiDomenskiObjekat {
     }
 
     public void setDatumOd(Date datumOd) {
+    	if(datumOd == null) {
+    		throw new NullPointerException("Datum početka ne može da bude null.");
+    	}
         this.datumOd = datumOd;
     }
 
@@ -47,6 +52,12 @@ public class RasporedEksperimenata implements OpstiDomenskiObjekat {
     }
 
     public void setDatumDo(Date datumDo) {
+    	if(datumDo == null) {
+    		throw new NullPointerException("Datum kraja ne može da bude null.");
+    	}
+    	if(datumDo.before(datumOd)) {
+    		throw new RuntimeException("Datum kraja ne sme da bude pre datuma početka.");
+    	}
         this.datumDo = datumDo;
     }
 

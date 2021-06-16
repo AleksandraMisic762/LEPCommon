@@ -4,12 +4,8 @@ import java.util.Objects;
 
 public class Korisnik implements OpstiDomenskiObjekat {
 
-    /**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
-	
-	
+		
 	private Long sifra;
     private String username;
     private String password;
@@ -18,9 +14,9 @@ public class Korisnik implements OpstiDomenskiObjekat {
     }
 
     public Korisnik(Long id, String username, String password) {
-        this.sifra = id;
-        this.username = username;
-        this.password = password;
+        setSifra(id);
+        setUsername(username);
+        setPassword(password);
     }
 
     public String getPassword() {
@@ -28,6 +24,12 @@ public class Korisnik implements OpstiDomenskiObjekat {
     }
 
     public void setPassword(String password) {
+    	if (password == null) {
+			throw new NullPointerException("Password ne može da bude null.");
+		}
+		if (password.length() < 8) {
+			throw new RuntimeException("Password mora da ima bar 8 karaktera.");
+		}
         this.password = password;
     }
 
@@ -36,6 +38,12 @@ public class Korisnik implements OpstiDomenskiObjekat {
     }
 
     public void setSifra(Long id) {
+    	if (sifra == null) {
+			throw new NullPointerException("Šifra ne sme da bude null.");
+		}
+    	if (sifra < 1) {
+			throw new RuntimeException("Šifra mora da bude veća od 0.");
+		}
         this.sifra = id;
     }
 
@@ -44,16 +52,13 @@ public class Korisnik implements OpstiDomenskiObjekat {
     }
 
     public void setUsername(String username) {
+    	if (username == null) {
+			throw new NullPointerException("Korisničko ime ne sme da bude null.");
+		}
+    	if (username.length() < 8) {
+			throw new RuntimeException("Korisničko ime mora da ima 8 karaktera.");
+		}
         this.username = username;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 3;
-        hash = 97 * hash + Objects.hashCode(this.sifra);
-        hash = 97 * hash + Objects.hashCode(this.username);
-        hash = 97 * hash + Objects.hashCode(this.password);
-        return hash;
     }
 
     @Override

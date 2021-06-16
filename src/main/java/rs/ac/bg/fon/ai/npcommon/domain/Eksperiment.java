@@ -23,11 +23,11 @@ public class Eksperiment implements OpstiDomenskiObjekat {
 	public Eksperiment(Long sifra, String naziv, Date datumOdrzavanja, int bodovi, Eksperimentator eksperimenatator,
 			RasporedEksperimenata raspored) {
 		setSifra(sifra);
-		this.naziv = naziv;
-		this.datumOdrzavanja = datumOdrzavanja;
-		this.bodovi = bodovi;
-		this.eksperimenatator = eksperimenatator;
-		this.raspored = raspored;
+		setNaziv(naziv);
+		setDatumOdrzavanja(datumOdrzavanja);
+		setBodovi(bodovi);
+		setEksperimenatator(eksperimenatator);
+		setRaspored(raspored);
 	}
 
 	@Override
@@ -51,6 +51,9 @@ public class Eksperiment implements OpstiDomenskiObjekat {
 	}
 
 	public void setNaziv(String naziv) {
+		if (naziv !=null && naziv.length() < 3) {
+			throw new RuntimeException("Naziv mora da ima bar 3 karaktera.");
+		}
 		this.naziv = naziv;
 	}
 
@@ -59,6 +62,9 @@ public class Eksperiment implements OpstiDomenskiObjekat {
 	}
 
 	public void setDatumOdrzavanja(Date datumOdrzavanja) {
+		if (datumOdrzavanja !=null && datumOdrzavanja.before(new java.util.Date())) {
+			throw new RuntimeException("Eksperiment ne može da se zakaže u prošlosti.");
+		}
 		this.datumOdrzavanja = datumOdrzavanja;
 	}
 
@@ -67,6 +73,9 @@ public class Eksperiment implements OpstiDomenskiObjekat {
 	}
 
 	public void setBodovi(int bodovi) {
+		if (bodovi < 0) {
+			throw new RuntimeException("Bodovi ne mogu da budu negativan broj.");
+		}
 		this.bodovi = bodovi;
 	}
 
@@ -83,6 +92,12 @@ public class Eksperiment implements OpstiDomenskiObjekat {
 	}
 
 	public void setRaspored(RasporedEksperimenata raspored) {
+		if (raspored !=null && (raspored.getDatumDo().after(datumOdrzavanja) && raspored.getDatumDo().before(datumOdrzavanja))
+				|| (raspored.getDatumOd().after(datumOdrzavanja) && raspored.getDatumOd().before(datumOdrzavanja))
+				|| (raspored.getDatumDo().before(datumOdrzavanja) && raspored.getDatumOd().after(datumOdrzavanja))
+				|| (raspored.getDatumOd().before(datumOdrzavanja) && raspored.getDatumDo().after(datumOdrzavanja))) {
+			throw new RuntimeException("Eksperiment se ne održava u okviru prosleđenog rasporeda.");
+		}
 		this.raspored = raspored;
 	}
 
