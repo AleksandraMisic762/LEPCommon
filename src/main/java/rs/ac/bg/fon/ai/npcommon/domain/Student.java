@@ -251,7 +251,7 @@ public class Student implements OpstiDomenskiObjekat {
 		if (sifra == null) {
 			throw new NullPointerException("Šifra ne može da bude null.");
 		}
-		if (sifra < 1) {
+		if (sifra < 0) {
 			throw new RuntimeException("Šifra mora da bude veća od 0.");
 		}
 		this.sifra = sifra;
