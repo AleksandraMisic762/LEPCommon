@@ -25,6 +25,13 @@ public class LSS implements OpstiDomenskiObjekat {
 	private ListaStudenata listaStudenata;
 
 	/**
+	 * Konstruktor koji samo inicijalizuje objekat klase <b>LSS</b>.
+	 */
+	public LSS() {
+		
+	}
+	
+	/**
 	 * Konstruktor koji inicijalizuje objekat klase <b>LSS</b> i postavlja vrednosti
 	 * atributa koji predstavljaju studenta i listu u kojoj se evidentira ko je
 	 * ostvario uslov da polaže ispit u roku na koji se odnosi lista.
