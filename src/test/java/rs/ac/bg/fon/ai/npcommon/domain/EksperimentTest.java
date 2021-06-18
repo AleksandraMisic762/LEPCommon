@@ -39,18 +39,19 @@ class EksperimentTest extends OpstiDomenskiObjekatTest{
 
 	@Test
 	void testEksperimentLongStringDateIntEksperimentatorRasporedEksperimenata() {
+		Long timestamp = System.currentTimeMillis();
 		Eksperimentator e1 = new Eksperimentator(5l, "Pera", "Peric");
 		RasporedEksperimenata r = new RasporedEksperimenata(5l, 
-				new Date(System.currentTimeMillis() - 2*86400000), 
-				new Date(System.currentTimeMillis() + 5*86400000));
+				new Date(timestamp - 2*86400000), 
+				new Date(timestamp + 5*86400000));
 		e = new Eksperiment(1l, "Procesovanje viseznacnih reci", 
-				new Date(System.currentTimeMillis() + 3*86400000), 
+				new Date(timestamp + 3*86400000), 
 				6, e1, r);
 		assertNotNull(e);
 		assertTrue(e.getSifra().equals(1l));
 		
 		assertEquals("Procesovanje viseznacnih reci", e.getNaziv());
-		assertEquals(new Date(System.currentTimeMillis() + 3*86400000), e.getDatumOdrzavanja());
+		assertEquals(new Date(timestamp + 3*86400000), e.getDatumOdrzavanja());
 		assertEquals(6, e.getBodovi());
 		assertTrue(e.getEksperimenatator().getSifra().equals(e1.getSifra()));
 		assertEquals(e1.getIme(), e.getEksperimenatator().getIme());
@@ -92,9 +93,9 @@ class EksperimentTest extends OpstiDomenskiObjekatTest{
 	}
 	
 	@Test
-	void testSetDatumOdrzavanjaPreDanas() {
+	void testSetDatumOdrzavanjaPreViseOdGodinuDana() {
 		assertThrows(java.lang.RuntimeException.class,
-				() -> e.setDatumOdrzavanja(new Date(System.currentTimeMillis() - 2*86400000)));
+				() -> e.setDatumOdrzavanja(new Date(System.currentTimeMillis() - 400l*86400000l)));
 	}
 
 	@Test

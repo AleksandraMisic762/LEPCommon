@@ -157,8 +157,8 @@ public class Eksperiment implements OpstiDomenskiObjekat {
 	 *             postavlja.
 	 */
 	public void setDatumOdrzavanja(Date datumOdrzavanja) {
-		if (datumOdrzavanja != null && datumOdrzavanja.before(new Date(System.currentTimeMillis()))) {
-			throw new RuntimeException("Eksperiment ne može da se zakaže u prošlosti.");
+		if (datumOdrzavanja != null && datumOdrzavanja.before(new Date(System.currentTimeMillis() - 365l*86400000l))) {
+			throw new RuntimeException("Eksperiment ne može da se postavi na više od pre godinu dana.");
 		}
 		this.datumOdrzavanja = datumOdrzavanja;
 	}
