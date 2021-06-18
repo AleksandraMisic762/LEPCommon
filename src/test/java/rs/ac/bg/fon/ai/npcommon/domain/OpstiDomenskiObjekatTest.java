@@ -9,7 +9,7 @@ abstract class OpstiDomenskiObjekatTest {
 	protected OpstiDomenskiObjekat odo;
 	
 	@Test
-	void testSetSifra() {
+	void testSetSifraOdo() {
 		odo.setSifra(1l);
 		assertNotNull(odo.getSifra());
 	}
