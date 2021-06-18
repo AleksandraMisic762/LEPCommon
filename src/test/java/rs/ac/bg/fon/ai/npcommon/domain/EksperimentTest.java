@@ -32,9 +32,9 @@ class EksperimentTest extends OpstiDomenskiObjekatTest{
 
 	@Test
 	void testEksperimentLong() {
-		e = new Eksperiment(1l);
+		e = new Eksperiment(4l);
 		assertNotNull(e);
-		assertEquals(1l, e.getSifra());
+		assertTrue(e.getSifra().equals(4l));
 	}
 
 	@Test
@@ -47,30 +47,25 @@ class EksperimentTest extends OpstiDomenskiObjekatTest{
 				new Date(System.currentTimeMillis() + 3*86400000), 
 				6, e1, r);
 		assertNotNull(e);
-		assertEquals(1l, e.getSifra());
+		assertTrue(e.getSifra().equals(1l));
 		
 		assertEquals("Procesovanje viseznacnih reci", e.getNaziv());
 		assertEquals(new Date(System.currentTimeMillis() + 3*86400000), e.getDatumOdrzavanja());
 		assertEquals(6, e.getBodovi());
-		assertEquals(e1.getSifra(), e.getEksperimenatator().getSifra());
+		assertTrue(e.getEksperimenatator().getSifra().equals(e1.getSifra()));
 		assertEquals(e1.getIme(), e.getEksperimenatator().getIme());
 		assertEquals(e1.getPrezime(), e.getEksperimenatator().getPrezime());
-		assertEquals(r.getSifra(), e.getRaspored().getSifra());
+		assertTrue(e.getRaspored().getSifra().equals(r.getSifra()));
 		assertEquals(r.getDatumOd(), e.getRaspored().getDatumOd());
 		assertEquals(r.getDatumDo(), e.getRaspored().getDatumDo());
 	}
 
 	@Test
 	void testSetSifra() {
-		e.setSifra(4l);
-		assertEquals(4l, e.getSifra());
+		Long l = 4l;
+		e.setSifra(l);
+		assertTrue(l.equals(e.getSifra()));
 	}
-//	
-//	@Test
-//	void testSetSifraNull() {
-//		assertThrows(java.lang.NullPointerException.class, 
-//				() -> e.setSifra(null));
-//	}
 	
 	@Test
 	void testSetSifraNegativna() {
@@ -93,7 +88,7 @@ class EksperimentTest extends OpstiDomenskiObjekatTest{
 	@Test
 	void testSetDatumOdrzavanja() {
 		e.setDatumOdrzavanja(new Date(System.currentTimeMillis() + 2*86400000));
-		assertEquals(new Date(System.currentTimeMillis() + 2*86400000), e.getNaziv());
+		assertEquals(new Date(System.currentTimeMillis() + 2*86400000), e.getDatumOdrzavanja());
 	}
 	
 	@Test
@@ -118,7 +113,7 @@ class EksperimentTest extends OpstiDomenskiObjekatTest{
 	void testSetEksperimenatator() {
 		Eksperimentator e1 = new Eksperimentator(5l, "Pera", "Peric");
 		e.setEksperimenatator(e1);
-		assertEquals(e1.getSifra(), e.getEksperimenatator().getSifra());
+		assertTrue(e1.getSifra().equals(e.getEksperimenatator().getSifra()));
 		assertEquals(e1.getIme(), e.getEksperimenatator().getIme());
 		assertEquals(e1.getPrezime(), e.getEksperimenatator().getPrezime());
 	}
@@ -130,12 +125,11 @@ class EksperimentTest extends OpstiDomenskiObjekatTest{
 				new Date(System.currentTimeMillis() - 2*86400000), 
 				new Date(System.currentTimeMillis() + 5*86400000));
 		e.setRaspored(r);
-		assertEquals(r.getSifra(), e.getRaspored().getSifra());
+		assertTrue(r.getSifra().equals(e.getRaspored().getSifra()));
 		assertEquals(r.getDatumOd(), e.getRaspored().getDatumOd());
 		assertEquals(r.getDatumDo(), e.getRaspored().getDatumDo());
 	}
 	
-	//napravi parametrizovan test
 	@Test
 	void testSetRasporedVanOpsega() {
 		e.setDatumOdrzavanja(new Date(System.currentTimeMillis() + 1*86400000));
