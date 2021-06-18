@@ -32,8 +32,8 @@ public enum Operation implements Serializable {
 	 */
 	ZAPAMTI_STUDENTA,
 	/**
-	 * Vrednost koja predstavlja operaciju koja vraća rezultat pretrage studenta
-	 * po nekom kriterijumu.
+	 * Vrednost koja predstavlja operaciju koja vraća rezultat pretrage studenta po
+	 * nekom kriterijumu.
 	 */
 	PRETRAZI_STUDENTA,
 	/**
@@ -95,5 +95,20 @@ public enum Operation implements Serializable {
 	 * Vrednost koja predstavlja operaciju koja vraća sva učešća studenata na nekom
 	 * eksperimentu.
 	 */
-	GET_ALL_UCESCA_NA_EKSPERIMENTU
+	GET_ALL_UCESCA_NA_EKSPERIMENTU,
+	/**
+	 * Vrednost koja predstavlja operaciju koja kreira izveštaj o svim studentima
+	 * koji su ostavarili uslov da polažu ispit.
+	 */
+	IZVESTAJ_STUDENTI_SA_USLOVOM,
+	/**
+	 * Vrednost koja predstavlja operaciju koja kreira izveštaj o svim studentima
+	 * koji su učestvovali na nekom eksperimentu.
+	 */
+	IZVESTAJ_UCESNICI_NA_EKSPERIMENTU,
+	/**
+	 * Vrednost koja predstavlja operaciju koja kreira izveštaj o svim eksperimetima
+	 * koji su sprovedeni do sada.
+	 */
+	IZVESTAJ_SPROVEDENI_EKSPERIMENTI
 }
