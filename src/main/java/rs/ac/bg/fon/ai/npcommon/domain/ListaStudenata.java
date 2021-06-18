@@ -110,8 +110,8 @@ public class ListaStudenata implements OpstiDomenskiObjekat {
 	 *             </ul>
 	 */
 	public void setRok(String rok) {
-		if (rok != null && (rok != "Januar" || rok != "Februar" || rok != "Jun" || rok != "Jul" || rok != "Septembar"
-				|| rok != "Oktobar")) {
+		if (rok != "Januar" && rok != "Februar" && rok != "Jun" && rok != "Jul" && rok != "Septembar"
+				&& rok != "Oktobar") {
 			throw new RuntimeException("Rok mora da bude u skupu: [Januar, Februar, Jun, Jul, Septembar, Oktobar] ");
 		}
 		this.rok = rok;
