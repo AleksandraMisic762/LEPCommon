@@ -32,7 +32,7 @@ class StudentTest extends OpstiDomenskiObjekatTest{
 	void testStudentLong() {
 		s = new Student(3l);
 		assertNotNull(s);
-		assertEquals(3l, s.getSifra());
+		assertTrue(s.getSifra().equals(3l));
 	}
 
 	@Test
@@ -40,12 +40,12 @@ class StudentTest extends OpstiDomenskiObjekatTest{
 		Predmet p = new Predmet(1l, "predmetA", 10);
 		s = new Student(4l, "2017/0001", "Pera", "Peric", false, p);
 		assertNotNull(s);
-		assertEquals(3l, s.getSifra());
+		assertTrue(s.getSifra().equals(4l));
 		assertEquals("2017/0001", s.getBrojIndeksa());
 		assertEquals("Pera", s.getIme());
 		assertEquals("Peric", s.getPrezime());
 		assertEquals(false, s.isPolozio());
-		assertEquals(p.getSifra(), s.getPredmet().getSifra());	
+		assertTrue(p.getSifra().equals(s.getPredmet().getSifra()));
 		assertEquals(p.getNaziv(), s.getPredmet().getNaziv());
 		assertEquals(p.getUslov(), s.getPredmet().getUslov());
 	}
@@ -128,7 +128,7 @@ class StudentTest extends OpstiDomenskiObjekatTest{
 	void testSetPredmet() {
 		Predmet p = new Predmet(1l, "predmetA", 10);
 		s.setPredmet(p);
-		assertEquals(p.getSifra(), s.getPredmet().getSifra());	
+		assertTrue(p.getSifra().equals(s.getPredmet().getSifra()));
 		assertEquals(p.getNaziv(), s.getPredmet().getNaziv());
 		assertEquals(p.getUslov(), s.getPredmet().getUslov());
 	}
@@ -136,14 +136,8 @@ class StudentTest extends OpstiDomenskiObjekatTest{
 	@Test
 	void testSetSifra() {
 		s.setSifra(55l);
-		assertEquals(55l, s.getSifra());
+		assertTrue(s.getSifra().equals(55l));
 	}
-	
-//	@Test
-//	void testSetSifraNull() {
-//		assertThrows(java.lang.NullPointerException.class,
-//				() -> s.setSifra(null));
-//	}
 	
 	@Test
 	void testSetSifraNegativna() {

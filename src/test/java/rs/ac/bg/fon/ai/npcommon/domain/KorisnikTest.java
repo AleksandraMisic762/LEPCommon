@@ -34,7 +34,7 @@ class KorisnikTest extends OpstiDomenskiObjekatTest{
 	void testKorisnikLongStringString() {
 		k = new Korisnik(4l, "username111", "Sifra%pristup1");
 		assertNotNull(k);
-		assertEquals(4l, k.getSifra());
+		assertTrue(k.getSifra().equals(4l));
 		assertEquals("username111", k.getUsername());
 		assertEquals("Sifra%pristup1", k.getPassword());
 	}
@@ -59,15 +59,9 @@ class KorisnikTest extends OpstiDomenskiObjekatTest{
 
 	@Test
 	void testSetSifra() {
-		k.setSifra(10l);
-		assertEquals(10l, k.getSifra());
+		k.setSifra(43l);
+		assertTrue(k.getSifra().equals(43l));
 	}
-
-//	@Test
-//	void testSetSifraNull() {
-//		assertThrows(java.lang.NullPointerException.class, 
-//				() -> k.setSifra(null));
-//	}
 	
 	@Test
 	void testSetSifraNegativna() {
@@ -95,14 +89,13 @@ class KorisnikTest extends OpstiDomenskiObjekatTest{
 
 	@ParameterizedTest
 	@CsvSource({
-		"1l, noviKorisnik, sifra#3$A, 1l, noviKorisnik, sifra#3$A, true",
-		"1l, noviKorisnik, sifra#3$A, 5l, noviKorisnik, sifra#3$A, true",
-		"1l, noviKorisnik, sifra#3$A, 1l, noviKorisnik, razlicitaSifra, true",
-		"1l, noviKorisnik, sifra#3$A, 1l, drugiKorisnik, sifra#3$A, false",
+		"noviKorisnik, sifra#3$A, noviKorisnik, sifra#3$A, true",
+		"noviKorisnik, sifra#3$A, noviKorisnik, razlicitaSifra, true",
+		"noviKorisnik, sifra#3$A, drugiKorisnik, sifra#3$A, false",
 	})
-	void testEqualsObject(Long s1, String kIme1, String pass1, Long s2, String kIme2, String pass2, boolean equals) {
-		Korisnik k1 = new Korisnik(s1, kIme1, pass1);
-		Korisnik k2 = new Korisnik(s2, kIme2, pass2);
+	void testEqualsObject(String kIme1, String pass1, String kIme2, String pass2, boolean equals) {
+		Korisnik k1 = new Korisnik(1l, kIme1, pass1);
+		Korisnik k2 = new Korisnik(1l, kIme2, pass2);
 		
 		assertEquals(k1.equals(k2), equals);
 	}

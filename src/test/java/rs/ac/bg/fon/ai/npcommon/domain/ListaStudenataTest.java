@@ -5,8 +5,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
 
 class ListaStudenataTest extends OpstiDomenskiObjekatTest{
 	
@@ -34,32 +32,27 @@ class ListaStudenataTest extends OpstiDomenskiObjekatTest{
 	void testListaStudenataLong() {
 		ls = new ListaStudenata(3l);
 		assertNotNull(ls);
-		assertEquals(3l, ls.getSifra());
+		assertTrue(ls.getSifra().equals(3l));
 	}
 
 	@Test
 	void testListaStudenataLongStringPredmet() {
-		Predmet p = new Predmet(1l, "Pamcenje", 10);
+		Predmet p = new Predmet(5l, "Pamcenje", 10);
 		ls = new ListaStudenata(3l, "Jun", p);
 		assertNotNull(ls);
-		assertEquals(3l, ls.getSifra());
+		assertTrue(ls.getSifra().equals(3l));
 		assertEquals("Jun", ls.getRok());
-		assertEquals(p.getSifra(), ls.getPredmet().getSifra());	
+		assertTrue(p.getSifra().equals(ls.getPredmet().getSifra()));	
 		assertEquals(p.getNaziv(), ls.getPredmet().getNaziv());
 		assertEquals(p.getUslov(), ls.getPredmet().getUslov());
 	}
 
 	@Test
 	void testSetSifra() {
-		ls.setSifra(55l);
-		assertEquals(55l, ls.getSifra());
+		Long l = 55l;
+		ls.setSifra(l);
+		assertTrue(l.equals(ls.getSifra()));
 	}
-	
-//	@Test
-//	void testSetSifraNull() {
-//		assertThrows(java.lang.NullPointerException.class,
-//				() -> ls.setSifra(null));
-//	}
 	
 	@Test
 	void testSetSifraNegativna() {
@@ -67,11 +60,9 @@ class ListaStudenataTest extends OpstiDomenskiObjekatTest{
 				() -> ls.setSifra(-60l));
 	}
 
-	@ParameterizedTest
-	@CsvSource({
-		"Januar", "Februar", "Jun", "Jul", "Septembar", "Oktobar"
-	})
-	void testSetRok(String rok) {
+	@Test
+	void testSetRok() {
+		String rok = "Januar";
 		ls.setRok(rok);
 		assertEquals(rok, ls.getRok());
 	}
@@ -86,7 +77,7 @@ class ListaStudenataTest extends OpstiDomenskiObjekatTest{
 	void testSetPredmet() {
 		Predmet p = new Predmet(1l, "predmetA", 10);
 		ls.setPredmet(p);
-		assertEquals(p.getSifra(), ls.getPredmet().getSifra());	
+		assertTrue(ls.getPredmet().getSifra().equals(1l));
 		assertEquals(p.getNaziv(), ls.getPredmet().getNaziv());
 		assertEquals(p.getUslov(), ls.getPredmet().getUslov());
 	}

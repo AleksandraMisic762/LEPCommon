@@ -12,8 +12,8 @@ class LSSTest extends OpstiDomenskiObjekatTest{
 	
 	@BeforeEach
 	void setUp() throws Exception {
-//		odo = new LSS();
-//		lss = new LSS();
+		odo = new LSS();
+		lss = new LSS();
 	}
 
 	@AfterEach
@@ -24,7 +24,7 @@ class LSSTest extends OpstiDomenskiObjekatTest{
 
 	@Test
 	void testLSS() {
-//		lss = new LSS();
+		lss = new LSS();
 		assertNotNull(lss);
 	}
 	
@@ -35,8 +35,8 @@ class LSSTest extends OpstiDomenskiObjekatTest{
 		lss = new LSS(s, ls);
 		assertNotNull(lss.getStudent());
 		assertNotNull(lss.getListaStudenata());
-		assertEquals(s.getSifra(), lss.getStudent().getSifra());
-		assertEquals(ls.getSifra(), lss.getListaStudenata().getSifra());
+		assertTrue(s.getSifra().equals(1l));
+		assertTrue(ls.getSifra().equals(6l));
 	}
 	
 	@Test
@@ -44,7 +44,7 @@ class LSSTest extends OpstiDomenskiObjekatTest{
 		Student s = new Student(1l);
 		lss.setStudent(s);
 		assertNotNull(lss.getStudent());
-		assertEquals(s.getSifra(), lss.getStudent().getSifra());
+		assertTrue(s.getSifra().equals(1l));
 	}
 	
 	@Test

@@ -32,14 +32,14 @@ class PredmetTest extends OpstiDomenskiObjekatTest{
 	void testPredmetLong() {
 		p = new Predmet(2l);
 		assertNotNull(p);
-		assertEquals(2l, p.getSifra());
+		assertTrue(p.getSifra().equals(2l));
 	}
 
 	@Test
 	void testPredmetLongStringInt() {
 		p = new Predmet(2l, "nazivPredmeta", 7);
 		assertNotNull(p);
-		assertEquals(2l, p.getSifra());
+		assertTrue(p.getSifra().equals(2l));
 		assertEquals("nazivPredmeta", p.getNaziv());
 		assertEquals(7, p.getUslov());
 	}
@@ -47,14 +47,8 @@ class PredmetTest extends OpstiDomenskiObjekatTest{
 	@Test
 	void testSetSifra() {
 		p.setSifra(9l);
-		assertEquals(9l, p.getSifra());
+		assertTrue(p.getSifra().equals(9l));
 	}
-	
-//	@Test
-//	void testSetSifraNull() {
-//		assertThrows(java.lang.NullPointerException.class, 
-//				() -> p.setSifra(null));
-//	}
 	
 	@Test
 	void testSetSifraNegativna() {

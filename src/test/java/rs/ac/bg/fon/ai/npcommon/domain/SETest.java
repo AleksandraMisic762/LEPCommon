@@ -34,8 +34,8 @@ class SETest extends OpstiDomenskiObjekatTest{
 		Eksperiment e = new Eksperiment(2l);
 		se = new SE(s,e);
 		assertNotNull(se);
-		assertEquals(s.getSifra(), se.getStudent().getSifra());
-		assertEquals(e.getSifra(), se.getEksperiment().getSifra());
+		assertTrue(se.getStudent().getSifra().equals(1l));
+		assertTrue(e.getSifra().equals(se.getEksperiment().getSifra()));
 	}
 
 	@Test
@@ -43,7 +43,7 @@ class SETest extends OpstiDomenskiObjekatTest{
 		Student s = new Student(1l);
 		se.setStudent(s);
 		assertNotNull(se.getStudent());
-		assertEquals(s.getSifra(), se.getStudent().getSifra());
+		assertTrue(s.getSifra().equals(se.getStudent().getSifra()));
 	}
 	
 	@Test
@@ -57,24 +57,12 @@ class SETest extends OpstiDomenskiObjekatTest{
 		Eksperiment e = new Eksperiment(2l);
 		se.setEksperiment(e);
 		assertNotNull(se.getEksperiment());
-		assertEquals(e.getSifra(), se.getEksperiment().getSifra());
+		assertTrue(e.getSifra().equals(se.getEksperiment().getSifra()));
 	}
 	
 	@Test
 	void testSetEksperimentNull() {
 		assertThrows(java.lang.NullPointerException.class, 
 				() -> se.setEksperiment(null));
-	}
-	
-//	@Test
-//	void testSetSifraNull() {
-//		assertThrows(java.lang.NullPointerException.class,
-//				() -> se.setSifra(null));
-//	}
-	
-	@Test
-	void testSetSifraNegativanBroj() {
-		assertThrows(java.lang.RuntimeException.class,
-				() -> se.setSifra(-5l));
 	}
 }

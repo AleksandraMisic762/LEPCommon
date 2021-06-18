@@ -30,16 +30,16 @@ class EksperimentatorTest extends OpstiDomenskiObjekatTest{
 
 	@Test
 	void testEksperimentatorLong() {
-		e = new Eksperimentator(5l);
+		e = new Eksperimentator(4l);
 		assertNotNull(e);
-		assertEquals(5l, e.getSifra());
+		assertTrue(e.getSifra().equals(4l));
 	}
 
 	@Test
 	void testEksperimentatorLongStringString() {
 		e = new Eksperimentator(5l, "Mita", "Mitic");
 		assertNotNull(e);
-		assertEquals(5l, e.getSifra());
+		assertTrue(e.getSifra().equals(5l));
 		assertEquals("Mita", e.getIme());
 		assertEquals("Mitic", e.getPrezime());
 	}
@@ -47,14 +47,9 @@ class EksperimentatorTest extends OpstiDomenskiObjekatTest{
 	@Test
 	void testSetSifra() {
 		e.setSifra(10l);
-		assertEquals(10l, e.getSifra());
+		assertTrue(e.getSifra().equals(10l));
 	}
 
-//	@Test
-//	void testSetSifraNull() {
-//		assertThrows(java.lang.NullPointerException.class, 
-//				() -> e.setSifra(null));
-//	}
 	
 	@Test
 	void testSetSifraNegativna() {
