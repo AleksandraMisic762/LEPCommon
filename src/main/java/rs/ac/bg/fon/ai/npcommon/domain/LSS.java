@@ -119,7 +119,9 @@ public class LSS implements OpstiDomenskiObjekat {
 
 	@Override
 	public void setSifra(Long id) {
-
+		if (id == null) {
+			throw new NullPointerException("Šifra ne može da bude null.");
+		}
 	}
 
 	@Override
@@ -141,7 +143,7 @@ public class LSS implements OpstiDomenskiObjekat {
 
 	@Override
 	public Long getSifra() {
-		return null;
+		return 0l;
 	}
 
 	@Override

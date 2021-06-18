@@ -113,7 +113,9 @@ public class SE implements OpstiDomenskiObjekat {
 
 	@Override
 	public void setSifra(Long id) {
-		
+		if (id == null) {
+			throw new NullPointerException("Šifra ne može da bude null.");
+		}
 	}
 
 	@Override
