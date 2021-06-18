@@ -157,7 +157,7 @@ public class Eksperiment implements OpstiDomenskiObjekat {
 	 *             postavlja.
 	 */
 	public void setDatumOdrzavanja(Date datumOdrzavanja) {
-		if (datumOdrzavanja != null && datumOdrzavanja.before(new java.util.Date())) {
+		if (datumOdrzavanja != null && datumOdrzavanja.before(new Date(System.currentTimeMillis()))) {
 			throw new RuntimeException("Eksperiment ne može da se zakaže u prošlosti.");
 		}
 		this.datumOdrzavanja = datumOdrzavanja;
@@ -234,11 +234,7 @@ public class Eksperiment implements OpstiDomenskiObjekat {
 	 *             izvan čijeg vremenskog opsega se eksperiment održava.
 	 */
 	public void setRaspored(RasporedEksperimenata raspored) {
-		if (raspored != null
-				&& (raspored.getDatumDo().after(datumOdrzavanja) && raspored.getDatumDo().before(datumOdrzavanja))
-				|| (raspored.getDatumOd().after(datumOdrzavanja) && raspored.getDatumOd().before(datumOdrzavanja))
-				|| (raspored.getDatumDo().before(datumOdrzavanja) && raspored.getDatumOd().after(datumOdrzavanja))
-				|| (raspored.getDatumOd().before(datumOdrzavanja) && raspored.getDatumDo().after(datumOdrzavanja))) {
+		if(raspored != null && (raspored.getDatumOd().after(datumOdrzavanja) || raspored.getDatumDo().before(datumOdrzavanja))){
 			throw new RuntimeException("Eksperiment se ne održava u okviru prosleđenog rasporeda.");
 		}
 		this.raspored = raspored;
