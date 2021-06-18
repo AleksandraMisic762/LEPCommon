@@ -113,7 +113,7 @@ public class SE implements OpstiDomenskiObjekat {
 
 	@Override
 	public void setSifra(Long id) {
-
+		
 	}
 
 	@Override
@@ -136,7 +136,7 @@ public class SE implements OpstiDomenskiObjekat {
 
 	@Override
 	public Long getSifra() {
-		return null;
+		return 0l;
 	}
 
 	@Override

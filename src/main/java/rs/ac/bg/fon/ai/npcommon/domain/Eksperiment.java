@@ -102,10 +102,10 @@ public class Eksperiment implements OpstiDomenskiObjekat {
 
 	@Override
 	public void setSifra(Long id) {
-		if (sifra == null) {
+		if (id == null) {
 			throw new NullPointerException("Šifra ne može da bude null.");
 		}
-		if (sifra < 0) {
+		if (id < 0) {
 			throw new RuntimeException("Šifra mora da bude veća od 0.");
 		}
 		this.sifra = id;
