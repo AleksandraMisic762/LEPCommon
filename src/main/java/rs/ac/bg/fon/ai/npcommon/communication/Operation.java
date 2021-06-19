@@ -60,10 +60,6 @@ public enum Operation implements Serializable {
 	 */
 	PRETRAZI_EKSPERIMENT,
 	/**
-	 * Vrednost koja predstavlja operaciju kreiranja nove liste studenata.
-	 */
-	KREIRAJ_LISTU_STUDENTA,
-	/**
 	 * Vrednost koja predstavlja operaciju koja čuva listu studenata sa svim
 	 * vrednostima njenih atributa.
 	 */
@@ -72,11 +68,6 @@ public enum Operation implements Serializable {
 	 * Vrednost koja predstavlja operaciju kreiranja novog rasporeda eksperimenata.
 	 */
 	KREIRAJ_RASPORED_EKSPERIMENATA,
-	/**
-	 * Vrednost koja predstavlja operaciju koja čuva raspored eksperimenata sa svim
-	 * vrednostima njegovih atributa.
-	 */
-	ZAPAMTI_RASPORED_EKSPERIMENATA,
 	/**
 	 * Vrednost koja predstavlja operaciju kreiranja novog eksperimentatora.
 	 */
